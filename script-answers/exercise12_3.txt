@@ -1,0 +1,29 @@
+Script started on Sat Jun 14 11:38:02 2025
+Restored session: Sat 14 Jun 2025 11:07:53 EDT
+[1m[7m%[27m[1m[0m                                                                                                                                                                                         ]7;file://Leons-MacBook-Air.local/Users/leeroy/Projects/part12-containers-applications/script-answers[0m[27m[24m[Jleeroy@Leons-MacBook-Air script-answers % [K[?2004hddoccker    ker ps[?2004l
+CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
+[1m[7m%[27m[1m[0m                                                                                                                                                                                         ]7;file://Leons-MacBook-Air.local/Users/leeroy/Projects/part12-containers-applications/script-answers[0m[27m[24m[Jleeroy@Leons-MacBook-Air script-answers % [K[?2004hddocker ls -a[?2004l
+unknown shorthand flag: 'a' in -a
+
+Usage:  docker [OPTIONS] COMMAND [ARG...]
+
+Run 'docker --help' for more information
+[1m[7m%[27m[1m[0m                                                                                                                                                                                         ]7;file://Leons-MacBook-Air.local/Users/leeroy/Projects/part12-containers-applications/script-answers[0m[27m[24m[Jleeroy@Leons-MacBook-Air script-answers % [K[?2004hddocker container ls -a[?2004l
+CONTAINER ID   IMAGE         COMMAND    CREATED          STATUS                      PORTS     NAMES
+e00cf488af0a   ubuntu        "bash"     35 minutes ago   Exited (0) 47 seconds ago             practical_rosalind
+8d5bee12c4cb   hello-world   "/hello"   58 minutes ago   Exited (0) 58 minutes ago             naughty_franklin
+[1m[7m%[27m[1m[0m                                                                                                                                                                                         ]7;file://Leons-MacBook-Air.local/Users/leeroy/Projects/part12-containers-applications/script-answers[0m[27m[24m[Jleeroy@Leons-MacBook-Air script-answers % [K[?2004hddocker start -i practical_rosalind[?2004l
+[?2004h]0;root@e00cf488af0a: /root@e00cf488af0a:/# nan   exitnano  /usr/src/app/index.js[4Papt-get -y install nanonano  /usr/src/app/index.js
+[?2004l[?2004h[?1049h[22;0;0t[1;51r(B[m[4l[?7h[39;49m[?1h=[?1h=[?25l[39;49m(B[m[H[2J[49;86H(B[0;7m[ Reading... ](B[m[49;85H(B[0;7m[ Read 0 lines ](B[m[H(B[0;7m  GNU nano 7.2 [69b/usr/src/app/index.js [78b [1;184H(B[m[50d(B[0;7m^G(B[m Help[50;17H(B[0;7m^O(B[m Write Out    (B[0;7m^W(B[m Where Is     (B[0;7m^K(B[m Cut[50;65H(B[0;7m^T(B[m Execute[81G(B[0;7m^C(B[m Location     (B[0;7mM-U(B[m Undo[50;113H(B[0;7mM-A(B[m Set Mark    (B[0;7mM-](B[m To Bracket  (B[0;7mM-Q(B[m Previous    (B[0;7m^B(B[m Back[51d(B[0;7m^X(B[m Exit[51;17H(B[0;7m^R(B[m Read File    (B[0;7m^\(B[m Replace[49G(B[0;7m^U(B[m Paste[51;65H(B[0;7m^J(B[m Justify[81G(B[0;7m^/(B[m Go To Line   (B[0;7mM-E(B[m Redo[51;113H(B[0;7mM-6(B[m Copy[51;129H(B[0;7m^Q(B[m Where Was    (B[0;7mM-W(B[m Next[51;161H(B[0;7m^F(B[m Forward[2d[?12l[?25h[?25l[1;107H(B[0;7m*[184G(B[m[?12l[?25h[2dc[?25l[?12l[?25ho[?25l[?12l[?25hn[?25l[?12l[?25hs[?25l[?12l[?25ho[?25l[?12l[?25hl[?25l[?12l[?25he[?25l[?12l[?25h.[?25l[?12l[?25hl[?25l[?12l[?25ho[?25l[?12l[?25hg[?25l[?12l[?25h([?25l[?12l[?25h"[?25l[?12l[?25hH[?25l[?12l[?25he[?25l[?12l[?25hl[?25l[?12l[?25hl[?25l[?12l[?25ho[?25l[?12l[?25h[42m [49m(B[m[?25l[49d[K[?12l[?25h[2;19H w[?25l[?12l[?25ho[?25l[?12l[?25hr[?25l[?12l[?25hl[?25l[?12l[?25hd[?25l[?12l[?25h[2;13H(B[0;1m[35m"Hello world"[39m(B[m[?25l[?12l[?25h)[?25l[?12l[?25h;[?25l[49d(B[0;7mSave modified buffer? [162b [50;1H Y(B[m Yes[K[51d(B[0;7m N(B[m No  [51;18H(B[0;7mC(B[m Cancel[K[49;23H[?12l[?25h[?25l[?12l[?25h[?25l[50d(B[0;7m^G(B[m Help[50;47H(B[0;7mM-D(B[m DOS Format[50;93H(B[0;7mM-A(B[m Append[50;139H(B[0;7mM-B(B[m Backup File[51d(B[0;7m^C(B[m Cancel[17G [8b[51;47H(B[0;7mM-M(B[m Mac Format[51;93H(B[0;7mM-P(B[m Prepend[51;139H(B[0;7m^T(B[m Browse[49d(B[0;7mFile Name to Write: /usr/src/app/index.js(B[m[?12l[?25h[?25l[49;85H[1K (B[0;7m[ Writing... ](B[m[K[1;107H(B[0;7m [184G(B[m[49;85H(B[0;7m[ Wrote 1 line ](B[m[J[51d[?12l[?25h[51;1H[?1049l[23;0;0t[?1l>[?2004l[?2004h]0;root@e00cf488af0a: /root@e00cf488af0a:/# [Kcat inde    /user/src/app/index.js
+[?2004lcat: /user/src/app/index.js: No such file or directory
+[?2004h]0;root@e00cf488af0a: /root@e00cf488af0a:/# [Kcat /user/src/app/index.js[1P
+[?2004lconsole.log("Hello world");
+[?2004h]0;root@e00cf488af0a: /root@e00cf488af0a:/# exit
+[?2004lexit
+[1m[7m%[27m[1m[0m                                                                                                                                                                                         ]7;file://Leons-MacBook-Air.local/Users/leeroy/Projects/part12-containers-applications/script-answers[0m[27m[24m[Jleeroy@Leons-MacBook-Air script-answers % [K[?2004heexit[?2004l
+
+Saving session...
+...saving history...truncating history files...
+...completed.
+
+Script done on Sat Jun 14 11:40:32 2025
