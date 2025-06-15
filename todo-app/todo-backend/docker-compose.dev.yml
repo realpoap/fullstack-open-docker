@@ -9,3 +9,11 @@ services:
       MONGO_INITDB_DATABASE: the_database
     volumes: 
       - ./mongo/mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js
+  redis:
+    image: redis:latest
+    restart: always
+    ports:
+      - '6379:6379'
+    
+    
+    
