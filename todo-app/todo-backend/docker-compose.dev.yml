@@ -10,10 +10,15 @@ services:
     volumes: 
       - ./mongo/mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js
   redis:
+    container_name: redis
     image: redis:latest
     restart: always
     ports:
       - '6379:6379'
+    command: ['redis-server', '--appendonly', 'yes'] # Overwrite the CMD
+    volumes: # Declare the volume
+      - ./redis_data:/data
+      
     
     
     

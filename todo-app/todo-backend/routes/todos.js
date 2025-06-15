@@ -18,9 +18,8 @@ router.post('/', async (req, res) => {
     text: req.body.text,
     done: false
   })
-  const counter = await redis.getAsync("added_todos")
-  console.log("Todos counter:", counter)
-  await redis.setAsync("added_todos", Number(counter + 1))
+  const counter = await redis.getAsync("added_todos");
+  await redis.setAsync("added_todos", Number(counter) + 1);
   res.send(todo);
 });
 

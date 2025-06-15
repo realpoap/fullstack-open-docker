@@ -5,8 +5,11 @@ const redis = require('../redis')
 const configs = require('../util/config')
 
 let visits = 0
-redis.setAsync("added_todos", 0);
-
+redis.getAsync("added_todos").then(value => {
+  if (value === null) {
+    redis.setAsync("added_todos", 0);
+  }
+});
 
 /* GET index data. */
 router.get('/', async (req, res) => {
@@ -24,6 +27,5 @@ router.get('/statistics', async (req, res) => {
     "added_todos": Number(stats) || 0
   })
 })
-
 
 module.exports = router;
