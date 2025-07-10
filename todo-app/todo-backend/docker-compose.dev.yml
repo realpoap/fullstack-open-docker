@@ -12,8 +12,11 @@ services:
       - REDIS_URL=redis://redis:6379
       - MONGO_URL=mongodb://root:example@mongo:27017/the_database
     depends_on:
-      - mongo
-      - redis
+      mongo:
+        condition: service_healthy
+        restart: true
+      redis:
+        condition: service_started
     container_name: todo-back-dev
   mongo:
     image: mongo

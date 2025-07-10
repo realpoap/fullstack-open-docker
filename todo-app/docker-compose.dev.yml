@@ -1,0 +1,11 @@
+services:
+  app:
+    image: front-dev
+    build:
+      context: ./todo-frontend # The context will pick this directory as the "build context"
+      dockerfile: dev.Dockerfile # This will simply tell which dockerfile to read
+    volumes:
+       - ./todo-frontend:/usr/src/app     # Mount only the frontend source
+    ports:
+      - 3120:5173
+    container_name: front-dev # This will name the container todo-front-dev
