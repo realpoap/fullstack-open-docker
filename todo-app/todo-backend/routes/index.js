@@ -21,6 +21,8 @@ router.get('/', async (req, res) => {
   });
 });
 
+router.get('/api/todos', (req, res) => res.send('Todos endpoint is working!'));
+
 router.get('/statistics', async (req, res) => {
   const stats = await redis.getAsync("added_todos")
   res.send({

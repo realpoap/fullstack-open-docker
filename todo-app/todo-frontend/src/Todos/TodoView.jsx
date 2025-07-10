@@ -26,13 +26,25 @@ const TodoView = () => {
     refreshTodos()
   }
 
-  const completeTodo = async (todo) => {
-    await axios.put(`/todos/${todo._id}`, {
-      text: todo.text,
-      done: true
-    })
-    refreshTodos()
+ const completeTodo = async (todo) => {
+  // Optimistic UI update
+  const updatedTodos = todos.map(t => 
+    t._id === todo._id ? { ...t, done: true } : t
+  );
+  setTodos(updatedTodos);
+
+  try {
+    // Send the PUT request to the backend to update the todo
+    const { data } = await axios.put(`/todos/${todo._id}`, { ...todo, done: true });
+
+    // Once the backend update is confirmed, re-fetch todos
+    refreshTodos();
+  } catch (error) {
+    console.error("Error updating todo:", error);
+    // Optionally, you can revert the optimistic UI update in case of error
+    //setTodos([...todos]);
   }
+}
 
   return (
     <>
