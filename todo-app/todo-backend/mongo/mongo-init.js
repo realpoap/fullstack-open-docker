@@ -1,3 +1,5 @@
+db = db.getSiblingDB('the_database');
+
 db.createUser({
   user: 'root',
   pwd: 'example',

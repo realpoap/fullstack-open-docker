@@ -9,3 +9,53 @@ services:
     ports:
       - 3120:5173
     container_name: front-dev # This will name the container todo-front-dev
+
+  server: 
+    image: back-dev
+    build:
+      context: ./todo-backend
+      dockerfile: dev.Dockerfile
+    volumes: 
+      - ./todo-backend:/usr/src/app
+    ports:
+      - 3000:3000
+    environment:
+      - REDIS_URL=redis://redis:6379
+      - MONGO_URL=mongodb://root:example@mongo:27017/the_database
+    depends_on:
+      - mongo
+      - redis
+
+    container_name: back-dev
+
+  nginx:
+    image: nginx:1.25-alpine
+    container_name: reverse-proxy
+    ports:
+      - 80:80
+    volumes:
+      - ./nginx.dev.conf:/etc/nginx/nginx.conf:ro
+    depends_on:
+      - app
+      - server
+
+  mongo:
+    image: mongo
+    ports:
+      - 3456:27017
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: example
+      MONGO_INITDB_DATABASE: the_database
+    volumes: 
+      - ./todo-backend/mongo/mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js
+
+  redis:
+    container_name: redis
+    image: redis:latest
+    restart: always
+    ports:
+      - '6379:6379'
+    command: ['redis-server', '--appendonly', 'yes'] # Overwrite the CMD
+    volumes: # Declare the volume
+      - ./redis_data:/data

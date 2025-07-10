@@ -14,7 +14,6 @@ services:
     depends_on:
       mongo:
         condition: service_healthy
-        restart: true
       redis:
         condition: service_started
     container_name: todo-back-dev
