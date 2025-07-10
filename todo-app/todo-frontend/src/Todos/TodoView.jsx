@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react'
 import axios from '../util/apiClient'
 
-import List from './List'
 import Form from './Form'
+import List from './List'
 
 const TodoView = () => {
   const [todos, setTodos] = useState([])
@@ -36,7 +36,7 @@ const TodoView = () => {
 
   return (
     <>
-      <h1>Todos</h1>
+      <h1>Todos in container</h1>
       <Form createTodo={createTodo} />
       <List todos={todos} deleteTodo={deleteTodo} completeTodo={completeTodo} />
     </>
