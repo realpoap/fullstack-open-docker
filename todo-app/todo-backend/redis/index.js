@@ -3,13 +3,14 @@ const { REDIS_URL } = require('../util/config')
 
 let client;
 
-
 if (!REDIS_URL) {
   const redisIsDisabled = () => {
     console.log('No REDIS_URL set, Redis is disabled')
     return null
   }
 } else {
+  console.log('REDIS_URL is:', process.env.REDIS_URL);
+
   client = redis.createClient({
     url: REDIS_URL
   })

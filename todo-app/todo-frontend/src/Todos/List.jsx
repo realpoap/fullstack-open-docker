@@ -1,12 +1,12 @@
 import Todo from './Todo'
 
-const TodoList = ({ todos, deleteTodo, completeTodo }) => {
+const TodoList = ({ todos, refreshTodos}) => {
 
   return (
     <>
-      {todos.map(todo => {
-        <Todo key={todo.text} todo={todo}/>
-      }).reduce((acc, cur) => [...acc, <hr />, cur], [])}
+      {todos.map((todo, index) => 
+        (<Todo key={index||index} todo={todo} refreshTodos={refreshTodos}/>)
+      ).reduce((acc, cur, idx) => [...acc, <hr key={`hr-${idx}`}/>, cur], [])}
     </>
   )
 }

@@ -1,6 +1,6 @@
 db.createUser({
-  user: 'the_username',
-  pwd: 'the_password',
+  user: 'root',
+  pwd: 'example',
   roles: [
     {
       role: 'dbOwner',

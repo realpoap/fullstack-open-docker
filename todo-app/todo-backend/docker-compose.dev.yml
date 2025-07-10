@@ -1,4 +1,20 @@
 services:
+  server: 
+    image: todo-back-dev
+    build:
+      context: .
+      dockerfile: dev.Dockerfile
+    volumes: 
+      - ./:/usr/src/app
+    ports:
+      - 3000:3000
+    environment:
+      - REDIS_URL=redis://redis:6379
+      - MONGO_URL=mongodb://root:example@mongo:27017/the_database
+    depends_on:
+      - mongo
+      - redis
+    container_name: todo-back-dev
   mongo:
     image: mongo
     ports:
@@ -19,6 +35,3 @@ services:
     volumes: # Declare the volume
       - ./redis_data:/data
       
-    
-    
-    
