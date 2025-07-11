@@ -1,0 +1,30 @@
+services:
+
+  app:
+    image: regtest-front-dev
+    build:
+      context: ./front #set the directory path 
+      dockerfile: dev.Dockerfile
+    volumes:
+      - ./front:/usr/src/app #set the directory path 
+    container_name: regtest-front-dev
+
+  server:
+    image: regtest-back-dev
+    build: 
+      context: ./back #set the directory path 
+      dockerfile: dev.Dockerfile
+    volumes:
+      - ./back:/usr/src/app #set the directory path 
+    container_name: regtest-back-dev
+
+  nginx:
+    image: nginx:1.25-alpine
+    container_name: nginx-regtest
+    ports:
+      - 8080:80
+    volumes:
+      - ./nginx.dev.conf:/etc/nginx/nginx.conf:ro
+    depends_on:
+      - app
+      - server

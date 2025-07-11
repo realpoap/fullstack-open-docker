@@ -1,0 +1,24 @@
+{
+  "name": "puppet-back",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon main.js"
+  },
+  "keywords": [],
+  "author": "poap",
+  "license": "ISC",
+  "packageManager": "pnpm@10.11.0",
+  "description": "",
+  "dependencies": {
+    "@slack/webhook": "^7.0.5",
+    "cors": "^2.8.5",
+    "dotenv": "^16.5.0",
+    "express": "^5.1.0",
+    "nodemon": "^3.1.10",
+    "odiff": "^1.5.0",
+    "odiff-bin": "^3.2.1",
+    "puppeteer": "^24.10.0"
+  }
+}
