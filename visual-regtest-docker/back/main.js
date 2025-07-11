@@ -27,12 +27,6 @@ if (result.error) {
   console.error('❌ Error loading .env.local:', result.error);
 } else {
   console.log('✅ Successfully loaded .env.local');
-  // Debug: Show all environment variables (excluding sensitive values)
-  const envVars = Object.keys(process.env).filter(key => key.includes('SLACK') || key.includes('DIFF'));
-  console.log('Loaded environment variables:', envVars);
-  if (envVars.length === 0) {
-    console.log('⚠️ No environment variables found. Please check your .env.local file format.');
-  }
 }
 
 const express = require('express');
@@ -60,7 +54,6 @@ app.use(express.json());
 app.use('/snapshots', express.static(path.join(__dirname, 'snapshots')));
 app.use('/diff', express.static(path.join(__dirname, 'diff')));
 
-
 app.get('/api/capture/list', async (_req, res) => {
   try {
     const results = await dirToJSON(path.join(__dirname, 'snapshots'));
@@ -77,7 +70,13 @@ app.post('/api/capture', async (req, res) => {
   const delay = req.body.delay
   const folderName = 'snapshots'  // TODO: diff folder name could be put in a config file
   const { date, hostname, path } = createFolders(url, folderName);
-  const browser = await puppeteer.launch();
+  // const browser = await puppeteer.launch();
+  const browser = await puppeteer.launch({ // with path to Chrome installed via Dockerfile Chrome installation
+    headless: true,
+    defaultViewport: null,
+    executablePath: '/usr/bin/google-chrome',
+    args: ['--no-sandbox'],
+  });
   const page = await browser.newPage();
   await page.setViewport({
     width: 1200,
@@ -212,7 +211,6 @@ app.get('/health', (req, res) => {
 app.get('/', (_req, res) => {
   res.send('Puppeter+Odiff Backend');
 });
-
 
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
